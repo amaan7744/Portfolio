@@ -1,0 +1,12 @@
+{
+  "name": "Aman Mulani — Backend & Automation Engineer",
+  "short_name": "Aman Mulani",
+  "description": "Portfolio of Aman Mulani, a Python backend and automation engineer.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A0D12",
+  "theme_color": "#0A0D12",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

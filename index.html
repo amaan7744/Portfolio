@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0A0D12" />
+    <!--
+      Fallback title/description for the raw index.html only — every route
+      overrides these via <Seo> (src/components/Seo.jsx) once React mounts,
+      and scripts/prerender.mjs bakes the correct per-route values into the
+      static HTML actually served to crawlers and bots.
+    -->
+    <title>Aman Mulani | Python Backend & Automation Engineer</title>
+    <meta name="description" content="Aman Mulani — Python backend engineer building automated, API-driven systems: scheduled AI pipelines, REST services, and full-stack web apps." />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+.pipeline-wrap {
+  margin-top: 56px; border: 1px solid var(--line); border-radius: var(--radius);
+  background: linear-gradient(180deg, var(--bg-panel), var(--bg-panel-2));
+  padding: 26px 20px 20px; overflow-x: auto;
+}
+.pipeline-head {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px;
+  font-family: var(--mono); font-size: 11.5px; color: var(--text-faint); padding: 0 6px;
+}
+.pipeline-head .path { color: var(--text-dim); }
+.pipeline-status { display: inline-flex; align-items: center; gap: 6px; font-variant-numeric: tabular-nums; min-width: 190px; justify-content: flex-end; }
+.pipeline-status-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--live); flex-shrink: 0; animation: pulse 2s infinite; }
+@media (max-width: 560px) { .pipeline-status { min-width: 0; } }
+.pipeline-svg { width: 100%; min-width: 640px; height: auto; display: block; }
+.node-box { fill: var(--bg-panel-2); stroke: var(--line); stroke-width: 1; transition: stroke .15s ease, filter .15s ease; }
+.node { cursor: help; outline: none; }
+.node:hover .node-box, .node:focus-visible .node-box {
+  stroke: var(--accent);
+  stroke-width: 1.5;
+  filter: drop-shadow(0 0 6px rgba(245, 166, 35, 0.35));
+}
+.node:focus-visible .node-label { fill: var(--accent); }
+.node-label { font-family: var(--mono); font-size: 11px; fill: var(--text); }
+.node-sub { font-family: var(--mono); font-size: 9px; fill: var(--text-faint); }
+.flow-line { stroke: var(--line); stroke-width: 1.5; fill: none; }
+.flow-dot { fill: var(--accent); filter: drop-shadow(0 0 4px rgba(245,166,35,0.8)); }
+.cron-badge { fill: none; stroke: var(--live-dim); stroke-width: 1; stroke-dasharray: 3 3; }
+.cron-text { font-family: var(--mono); font-size: 9px; fill: var(--live); }

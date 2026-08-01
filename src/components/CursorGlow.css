@@ -1,0 +1,24 @@
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 520px;
+  height: 520px;
+  margin-left: -260px;
+  margin-top: -260px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  will-change: transform, opacity;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(circle, rgba(245, 166, 35, 0.05) 0%, rgba(245, 166, 35, 0) 70%);
+  mix-blend-mode: plus-lighter;
+}
+[data-theme="light"] .cursor-glow {
+  background: radial-gradient(circle, rgba(181, 101, 29, 0.06) 0%, rgba(181, 101, 29, 0) 70%);
+  mix-blend-mode: normal;
+}
+@media (max-width: 720px) {
+  .cursor-glow { display: none; }
+}

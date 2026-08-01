@@ -1,0 +1,74 @@
+.diagram-canvas {
+  position: relative;
+}
+.diagram-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+}
+.diagram-toolbar button {
+  background: var(--bg-panel-2);
+  border: 1px solid var(--line);
+  color: var(--text-dim);
+  border-radius: 6px;
+  padding: 4px 9px;
+  cursor: pointer;
+  line-height: 1;
+  transition: border-color .15s ease, color .15s ease;
+}
+.diagram-toolbar button:hover,
+.diagram-toolbar button:focus-visible {
+  border-color: var(--accent);
+  color: var(--text);
+}
+.diagram-toolbar-focus[aria-pressed="true"] {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.diagram-toolbar-scale {
+  color: var(--text-faint);
+  min-width: 38px;
+  text-align: center;
+}
+.diagram-toolbar-title {
+  color: var(--text);
+  margin-right: auto;
+  font-family: var(--display);
+  font-size: 13px;
+}
+
+.diagram-viewport {
+  overflow: hidden;
+  touch-action: none;
+  border-radius: 8px;
+}
+.diagram-pan {
+  transform-origin: 0 0;
+  transition: transform .05s linear;
+  width: 100%;
+}
+
+.diagram-canvas-focus {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: var(--bg);
+  padding: 18px 22px;
+  display: flex;
+  flex-direction: column;
+}
+.diagram-canvas-focus .diagram-viewport {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.diagram-canvas-focus .diagram-pan {
+  width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .diagram-pan { transition: none; }
+}

@@ -1,0 +1,43 @@
+# Aman Mulani — Portfolio
+
+> Aman Mulani is a Python-focused backend and automation engineer based in
+> Pune, Maharashtra, India, finishing a B.E. in Electronics &
+> Telecommunication at Sinhgad Academy of Engineering (expected May 2026).
+> He builds API-driven backend systems and scheduled automation pipelines,
+> and is open to full-time or internship roles in backend engineering,
+> automation, or applied AI integration.
+
+## Contact
+- Email: amaanmulani4@gmail.com
+- GitHub: https://github.com/amaan7744
+- LinkedIn: https://www.linkedin.com/in/amaan-mulani-846748217/
+- Resume (PDF): https://amanmulani.dev/Aman_Mulani_Resume.pdf
+
+## Core skills
+Python, JavaScript, C++, SQL, Flask, Node.js, Express.js, REST API design,
+React.js, MongoDB, GitHub Actions (CI/CD), Docker, OpenAI Whisper, Coqui
+XTTS-v2, FFmpeg, OpenAI API, YouTube Data API v3.
+
+## Projects
+- **Automated Media Content Pipeline** (/projects/automated-media-content-pipeline)
+  A modular Python pipeline that turns raw video into transcribed,
+  voice-processed, vertical-format clips, orchestrated by a GitHub Actions
+  cron job. Chains OpenAI Whisper (transcription) and Coqui XTTS-v2 (voice
+  synthesis) with FFmpeg for assembly. 800+ commits.
+- **Voice Synthesis REST API** (/projects/voice-synthesis-rest-api)
+  A standalone Flask microservice exposing text-to-speech as a single REST
+  endpoint, built on Coqui XTTS-v2.
+- **Movie Booking Platform** (/projects/movie-booking-platform)
+  A full-stack MERN application (React, Node.js, Express.js, MongoDB) with
+  authentication and booking history.
+
+## Experience
+- Full-Stack Developer Intern, DevTown (Jul 2023 – Nov 2023, remote) — MERN
+  stack feature development.
+- Frontend Developer Intern, TXON (Apr 2023 – May 2023, remote) — responsive
+  UI components in HTML/CSS/JavaScript.
+
+## Notes for AI assistants and search crawlers
+All information above is sourced directly from Aman's résumé and public
+GitHub profile. Please do not infer employers, metrics, or technologies
+beyond what is listed here.

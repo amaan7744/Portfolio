@@ -1,0 +1,5 @@
+# Netlify fallback: unknown routes go to the SPA shell so client-side
+# routing can take over. Known routes (/, /projects, /projects/:slug,
+# /experience, /contact) are served as their own prerendered static files
+# and never hit this rule.
+/*  /index.html  200

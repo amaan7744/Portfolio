@@ -1,0 +1,25 @@
+.gh-activity {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-panel);
+  padding: 26px 28px;
+  margin-top: 20px;
+}
+.gh-activity .gh-subhead {
+  font-family: var(--mono); font-size: 11px; color: var(--accent); text-transform: uppercase;
+  letter-spacing: 0.06em; margin-bottom: 16px;
+}
+.gh-activity-list li {
+  display: flex; align-items: baseline; gap: 12px; padding: 10px 0;
+  border-bottom: 1px dashed var(--line); font-family: var(--mono); font-size: 12.5px;
+}
+.gh-activity-list li:last-child { border-bottom: none; }
+.gh-activity-icon { color: var(--live); flex-shrink: 0; width: 14px; text-align: center; }
+.gh-activity-text { color: var(--text-dim); flex: 1; }
+.gh-activity-text a { color: var(--text); transition: color .15s ease; }
+.gh-activity-text a:hover { color: var(--accent); }
+.gh-activity-time { color: var(--text-faint); flex-shrink: 0; font-size: 11px; }
+@media (max-width: 560px) {
+  .gh-activity-list li { flex-wrap: wrap; }
+  .gh-activity-time { margin-left: 26px; }
+}
