@@ -1,47 +1,124 @@
-/* --- floating button --- */
-.asst-fab {
+/* --- launcher: floating label + avatar orb --- */
+.asst-launcher {
   position: fixed;
-  right: 22px;
-  bottom: 22px;
+  right: 24px;
+  bottom: 24px;
   z-index: 150;
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
-  font-family: var(--mono);
+  gap: 10px;
+}
+
+.asst-launcher-label {
+  font-family: var(--display);
   font-size: 13px;
   font-weight: 500;
   color: var(--text);
-  background: linear-gradient(160deg, var(--bg-panel), var(--bg-panel-2));
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  padding: 12px 20px 12px 16px;
+  letter-spacing: 0.01em;
+  opacity: 0.88;
+  text-shadow: 0 0 16px rgba(245, 166, 35, 0.45), 0 1px 3px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  animation: asst-label-in 0.6s ease 0.15s both, asst-label-float 4.5s ease-in-out 0.8s infinite;
+  white-space: nowrap;
+}
+@keyframes asst-label-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 0.88; transform: translateY(0); }
+}
+@keyframes asst-label-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.asst-orb {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  padding: 0;
+  border: none;
+  background: none;
   cursor: pointer;
-  box-shadow:
-    0 14px 34px -12px rgba(0, 0, 0, 0.55),
-    0 0 0 1px rgba(245, 166, 35, 0.03);
-  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  border-radius: 50%;
+  animation: asst-orb-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both, asst-orb-float 6s ease-in-out 0.7s infinite;
+  transition: transform 0.25s ease;
 }
-.asst-fab:hover, .asst-fab:focus-visible {
-  border-color: var(--accent-dim);
-  transform: translateY(-2px);
-  box-shadow:
-    0 18px 40px -12px rgba(0, 0, 0, 0.6),
-    0 0 24px -6px rgba(245, 166, 35, 0.35);
+.asst-orb:hover { transform: translateY(-5px) scale(1.055); }
+.asst-orb:active { transform: translateY(-2px) scale(0.97); transition-duration: 0.08s; }
+.asst-orb:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+@keyframes asst-orb-in {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
 }
-.asst-fab-icon { color: var(--accent); flex-shrink: 0; }
-.asst-fab-ring {
+@keyframes asst-orb-float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-6px) rotate(1.5deg); }
+}
+
+/* Soft ambient bloom behind the orb — the "breathing" glow */
+.asst-orb-glow {
   position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  border: 1px solid rgba(245, 166, 35, 0.5);
-  opacity: 0;
-  animation: asst-ring-ping 2.6s ease-out infinite;
+  inset: -18px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 166, 35, 0.55), rgba(245, 166, 35, 0.12) 55%, transparent 75%);
+  filter: blur(14px);
+  animation: asst-orb-breathe 3.2s ease-in-out infinite;
   pointer-events: none;
 }
-@keyframes asst-ring-ping {
-  0% { opacity: 0.55; transform: scale(1); }
-  70% { opacity: 0; transform: scale(1.14); }
-  100% { opacity: 0; transform: scale(1.14); }
+.asst-orb:hover .asst-orb-glow { animation-duration: 1.6s; filter: blur(16px); }
+@keyframes asst-orb-breathe {
+  0%, 100% { opacity: 0.55; transform: scale(0.94); }
+  50% { opacity: 0.95; transform: scale(1.06); }
+}
+
+/* Glassmorphic gradient-border ring sitting between the glow and the avatar */
+.asst-orb-ring {
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  padding: 2px;
+  background: conic-gradient(from 0deg, var(--accent), #ffd58a, var(--live), var(--accent));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0.9;
+  animation: asst-ring-spin 7s linear infinite;
+  pointer-events: none;
+}
+@keyframes asst-ring-spin { to { transform: rotate(360deg); } }
+
+.asst-orb-avatar {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  display: block;
+  background: var(--bg-panel);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 12px 30px -8px rgba(0, 0, 0, 0.6),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 -8px 18px -6px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+}
+.asst-orb-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 15%;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .asst-orb { width: 84px; height: 84px; }
+  .asst-launcher-label { font-size: 12px; }
+}
+@media (max-width: 480px) {
+  .asst-launcher { right: 18px; bottom: 18px; gap: 7px; }
+  .asst-orb { width: 64px; height: 64px; }
+  .asst-launcher-label { font-size: 11px; }
 }
 
 /* --- panel shell --- */
@@ -406,5 +483,8 @@
 @keyframes asst-shimmer { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
 
 @media (prefers-reduced-motion: reduce) {
-  .asst-panel, .asst-fab-ring, .asst-msg, .asst-dot, .asst-skel-line::after, .asst-skel-bubble::after { animation: none; }
+  .asst-panel, .asst-msg, .asst-dot, .asst-skel-line::after, .asst-skel-bubble::after,
+  .asst-orb, .asst-orb-glow, .asst-orb-ring, .asst-launcher-label {
+    animation: none;
+  }
 }
