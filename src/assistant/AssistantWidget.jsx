@@ -66,7 +66,10 @@ export default function AssistantWidget() {
           aria-label="Open AI assistant — ask about Aman's projects and skills (shortcut: Ctrl/Cmd+J)"
           title="Ask AI (Ctrl/Cmd+J)"
         >
-          <span className="asst-fab-dot" />
+          <span className="asst-fab-ring" aria-hidden="true" />
+          <svg className="asst-fab-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2L14.2 9.2L21 12L14.2 14.8L12 22L9.8 14.8L3 12L9.8 9.2L12 2Z" fill="currentColor" />
+          </svg>
           ask AI
         </button>
       )}
