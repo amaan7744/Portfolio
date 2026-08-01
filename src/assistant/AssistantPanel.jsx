@@ -244,7 +244,12 @@ export default function AssistantPanel({ onClose, focusMode, onToggleFocus }) {
     <div className={`asst-panel${focusMode ? " asst-panel-focus" : ""}`} role="dialog" aria-modal={focusMode ? "true" : undefined} aria-label="Portfolio AI assistant">
       <div className="asst-header">
         <div className="asst-header-top">
-          <span className="asst-header-title">Ask about Aman</span>
+          <span className="asst-header-title">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 2L14.2 9.2L21 12L14.2 14.8L12 22L9.8 14.8L3 12L9.8 9.2L12 2Z" fill="currentColor" />
+            </svg>
+            Ask about Aman
+          </span>
           <div className="asst-header-actions">
             <span className="asst-kbd-hint" aria-hidden="true">esc</span>
             <button type="button" onClick={onToggleFocus} aria-label={focusMode ? "Exit full screen" : "Full screen"}>
